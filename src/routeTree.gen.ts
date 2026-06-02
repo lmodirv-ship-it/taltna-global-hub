@@ -9,13 +9,150 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VideosRouteImport } from './routes/videos'
+import { Route as ToolsRouteImport } from './routes/tools'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SupportRouteImport } from './routes/support'
+import { Route as SubscriptionsRouteImport } from './routes/subscriptions'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as SearchRouteImport } from './routes/search'
+import { Route as QuestionsRouteImport } from './routes/questions'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as MessagesRouteImport } from './routes/messages'
+import { Route as MembershipRouteImport } from './routes/membership'
+import { Route as GroupsRouteImport } from './routes/groups'
+import { Route as ForumsRouteImport } from './routes/forums'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as ArticlesRouteImport } from './routes/articles'
 import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as VideosUploadRouteImport } from './routes/videos.upload'
+import { Route as VideosIdRouteImport } from './routes/videos.$id'
+import { Route as ToolsTextRouteImport } from './routes/tools.text'
+import { Route as ToolsSeoRouteImport } from './routes/tools.seo'
+import { Route as ToolsPdfRouteImport } from './routes/tools.pdf'
+import { Route as ToolsImageRouteImport } from './routes/tools.image'
+import { Route as ToolsAiRouteImport } from './routes/tools.ai'
+import { Route as ToolsSlugRouteImport } from './routes/tools.$slug'
+import { Route as QuestionsAskRouteImport } from './routes/questions.ask'
+import { Route as QuestionsIdRouteImport } from './routes/questions.$id'
+import { Route as GroupsIdRouteImport } from './routes/groups.$id'
+import { Route as ForumsNewRouteImport } from './routes/forums.new'
+import { Route as ForumsCategoryRouteImport } from './routes/forums.$category'
+import { Route as ArticlesNewRouteImport } from './routes/articles.new'
+import { Route as ArticlesSlugRouteImport } from './routes/articles.$slug'
+import { Route as AdminVideosRouteImport } from './routes/admin.videos'
+import { Route as AdminVerificationRouteImport } from './routes/admin.verification'
+import { Route as AdminUsersRouteImport } from './routes/admin.users'
+import { Route as AdminToolsRouteImport } from './routes/admin.tools'
+import { Route as AdminStatsRouteImport } from './routes/admin.stats'
+import { Route as AdminRolesRouteImport } from './routes/admin.roles'
+import { Route as AdminReportsRouteImport } from './routes/admin.reports'
+import { Route as AdminModeratorsRouteImport } from './routes/admin.moderators'
+import { Route as AdminForumRouteImport } from './routes/admin.forum'
+import { Route as AdminArticlesRouteImport } from './routes/admin.articles'
+import { Route as AdminAdsRouteImport } from './routes/admin.ads'
+import { Route as ForumsTopicIdRouteImport } from './routes/forums.topic.$id'
+import { Route as ArticlesSlugEditRouteImport } from './routes/articles.$slug.edit'
 
+const VideosRoute = VideosRouteImport.update({
+  id: '/videos',
+  path: '/videos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsRoute = ToolsRouteImport.update({
+  id: '/tools',
+  path: '/tools',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SupportRoute = SupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SubscriptionsRoute = SubscriptionsRouteImport.update({
+  id: '/subscriptions',
+  path: '/subscriptions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuestionsRoute = QuestionsRouteImport.update({
+  id: '/questions',
+  path: '/questions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MessagesRoute = MessagesRouteImport.update({
+  id: '/messages',
+  path: '/messages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MembershipRoute = MembershipRouteImport.update({
+  id: '/membership',
+  path: '/membership',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GroupsRoute = GroupsRouteImport.update({
+  id: '/groups',
+  path: '/groups',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForumsRoute = ForumsRouteImport.update({
+  id: '/forums',
+  path: '/forums',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthRoute = AuthRouteImport.update({
   id: '/auth',
   path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArticlesRoute = ArticlesRouteImport.update({
+  id: '/articles',
+  path: '/articles',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminRoute = AdminRouteImport.update({
@@ -23,49 +160,631 @@ const AdminRoute = AdminRouteImport.update({
   path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VideosUploadRoute = VideosUploadRouteImport.update({
+  id: '/upload',
+  path: '/upload',
+  getParentRoute: () => VideosRoute,
+} as any)
+const VideosIdRoute = VideosIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => VideosRoute,
+} as any)
+const ToolsTextRoute = ToolsTextRouteImport.update({
+  id: '/text',
+  path: '/text',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsSeoRoute = ToolsSeoRouteImport.update({
+  id: '/seo',
+  path: '/seo',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsPdfRoute = ToolsPdfRouteImport.update({
+  id: '/pdf',
+  path: '/pdf',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsImageRoute = ToolsImageRouteImport.update({
+  id: '/image',
+  path: '/image',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsAiRoute = ToolsAiRouteImport.update({
+  id: '/ai',
+  path: '/ai',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsSlugRoute = ToolsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const QuestionsAskRoute = QuestionsAskRouteImport.update({
+  id: '/ask',
+  path: '/ask',
+  getParentRoute: () => QuestionsRoute,
+} as any)
+const QuestionsIdRoute = QuestionsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => QuestionsRoute,
+} as any)
+const GroupsIdRoute = GroupsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => GroupsRoute,
+} as any)
+const ForumsNewRoute = ForumsNewRouteImport.update({
+  id: '/new',
+  path: '/new',
+  getParentRoute: () => ForumsRoute,
+} as any)
+const ForumsCategoryRoute = ForumsCategoryRouteImport.update({
+  id: '/$category',
+  path: '/$category',
+  getParentRoute: () => ForumsRoute,
+} as any)
+const ArticlesNewRoute = ArticlesNewRouteImport.update({
+  id: '/new',
+  path: '/new',
+  getParentRoute: () => ArticlesRoute,
+} as any)
+const ArticlesSlugRoute = ArticlesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ArticlesRoute,
+} as any)
+const AdminVideosRoute = AdminVideosRouteImport.update({
+  id: '/videos',
+  path: '/videos',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminVerificationRoute = AdminVerificationRouteImport.update({
+  id: '/verification',
+  path: '/verification',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminToolsRoute = AdminToolsRouteImport.update({
+  id: '/tools',
+  path: '/tools',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminStatsRoute = AdminStatsRouteImport.update({
+  id: '/stats',
+  path: '/stats',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminRolesRoute = AdminRolesRouteImport.update({
+  id: '/roles',
+  path: '/roles',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminReportsRoute = AdminReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminModeratorsRoute = AdminModeratorsRouteImport.update({
+  id: '/moderators',
+  path: '/moderators',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminForumRoute = AdminForumRouteImport.update({
+  id: '/forum',
+  path: '/forum',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminArticlesRoute = AdminArticlesRouteImport.update({
+  id: '/articles',
+  path: '/articles',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAdsRoute = AdminAdsRouteImport.update({
+  id: '/ads',
+  path: '/ads',
+  getParentRoute: () => AdminRoute,
+} as any)
+const ForumsTopicIdRoute = ForumsTopicIdRouteImport.update({
+  id: '/topic/$id',
+  path: '/topic/$id',
+  getParentRoute: () => ForumsRoute,
+} as any)
+const ArticlesSlugEditRoute = ArticlesSlugEditRouteImport.update({
+  id: '/edit',
+  path: '/edit',
+  getParentRoute: () => ArticlesSlugRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
+  '/about': typeof AboutRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/articles': typeof ArticlesRouteWithChildren
   '/auth': typeof AuthRoute
+  '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
+  '/forums': typeof ForumsRouteWithChildren
+  '/groups': typeof GroupsRouteWithChildren
+  '/membership': typeof MembershipRoute
+  '/messages': typeof MessagesRoute
+  '/notifications': typeof NotificationsRoute
+  '/privacy': typeof PrivacyRoute
+  '/profile': typeof ProfileRoute
+  '/questions': typeof QuestionsRouteWithChildren
+  '/search': typeof SearchRoute
+  '/settings': typeof SettingsRoute
+  '/subscriptions': typeof SubscriptionsRoute
+  '/support': typeof SupportRoute
+  '/terms': typeof TermsRoute
+  '/tools': typeof ToolsRouteWithChildren
+  '/videos': typeof VideosRouteWithChildren
+  '/admin/ads': typeof AdminAdsRoute
+  '/admin/articles': typeof AdminArticlesRoute
+  '/admin/forum': typeof AdminForumRoute
+  '/admin/moderators': typeof AdminModeratorsRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/roles': typeof AdminRolesRoute
+  '/admin/stats': typeof AdminStatsRoute
+  '/admin/tools': typeof AdminToolsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/admin/verification': typeof AdminVerificationRoute
+  '/admin/videos': typeof AdminVideosRoute
+  '/articles/$slug': typeof ArticlesSlugRouteWithChildren
+  '/articles/new': typeof ArticlesNewRoute
+  '/forums/$category': typeof ForumsCategoryRoute
+  '/forums/new': typeof ForumsNewRoute
+  '/groups/$id': typeof GroupsIdRoute
+  '/questions/$id': typeof QuestionsIdRoute
+  '/questions/ask': typeof QuestionsAskRoute
+  '/tools/$slug': typeof ToolsSlugRoute
+  '/tools/ai': typeof ToolsAiRoute
+  '/tools/image': typeof ToolsImageRoute
+  '/tools/pdf': typeof ToolsPdfRoute
+  '/tools/seo': typeof ToolsSeoRoute
+  '/tools/text': typeof ToolsTextRoute
+  '/videos/$id': typeof VideosIdRoute
+  '/videos/upload': typeof VideosUploadRoute
+  '/articles/$slug/edit': typeof ArticlesSlugEditRoute
+  '/forums/topic/$id': typeof ForumsTopicIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
+  '/about': typeof AboutRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/articles': typeof ArticlesRouteWithChildren
   '/auth': typeof AuthRoute
+  '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
+  '/forums': typeof ForumsRouteWithChildren
+  '/groups': typeof GroupsRouteWithChildren
+  '/membership': typeof MembershipRoute
+  '/messages': typeof MessagesRoute
+  '/notifications': typeof NotificationsRoute
+  '/privacy': typeof PrivacyRoute
+  '/profile': typeof ProfileRoute
+  '/questions': typeof QuestionsRouteWithChildren
+  '/search': typeof SearchRoute
+  '/settings': typeof SettingsRoute
+  '/subscriptions': typeof SubscriptionsRoute
+  '/support': typeof SupportRoute
+  '/terms': typeof TermsRoute
+  '/tools': typeof ToolsRouteWithChildren
+  '/videos': typeof VideosRouteWithChildren
+  '/admin/ads': typeof AdminAdsRoute
+  '/admin/articles': typeof AdminArticlesRoute
+  '/admin/forum': typeof AdminForumRoute
+  '/admin/moderators': typeof AdminModeratorsRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/roles': typeof AdminRolesRoute
+  '/admin/stats': typeof AdminStatsRoute
+  '/admin/tools': typeof AdminToolsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/admin/verification': typeof AdminVerificationRoute
+  '/admin/videos': typeof AdminVideosRoute
+  '/articles/$slug': typeof ArticlesSlugRouteWithChildren
+  '/articles/new': typeof ArticlesNewRoute
+  '/forums/$category': typeof ForumsCategoryRoute
+  '/forums/new': typeof ForumsNewRoute
+  '/groups/$id': typeof GroupsIdRoute
+  '/questions/$id': typeof QuestionsIdRoute
+  '/questions/ask': typeof QuestionsAskRoute
+  '/tools/$slug': typeof ToolsSlugRoute
+  '/tools/ai': typeof ToolsAiRoute
+  '/tools/image': typeof ToolsImageRoute
+  '/tools/pdf': typeof ToolsPdfRoute
+  '/tools/seo': typeof ToolsSeoRoute
+  '/tools/text': typeof ToolsTextRoute
+  '/videos/$id': typeof VideosIdRoute
+  '/videos/upload': typeof VideosUploadRoute
+  '/articles/$slug/edit': typeof ArticlesSlugEditRoute
+  '/forums/topic/$id': typeof ForumsTopicIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
+  '/about': typeof AboutRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/articles': typeof ArticlesRouteWithChildren
   '/auth': typeof AuthRoute
+  '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
+  '/forums': typeof ForumsRouteWithChildren
+  '/groups': typeof GroupsRouteWithChildren
+  '/membership': typeof MembershipRoute
+  '/messages': typeof MessagesRoute
+  '/notifications': typeof NotificationsRoute
+  '/privacy': typeof PrivacyRoute
+  '/profile': typeof ProfileRoute
+  '/questions': typeof QuestionsRouteWithChildren
+  '/search': typeof SearchRoute
+  '/settings': typeof SettingsRoute
+  '/subscriptions': typeof SubscriptionsRoute
+  '/support': typeof SupportRoute
+  '/terms': typeof TermsRoute
+  '/tools': typeof ToolsRouteWithChildren
+  '/videos': typeof VideosRouteWithChildren
+  '/admin/ads': typeof AdminAdsRoute
+  '/admin/articles': typeof AdminArticlesRoute
+  '/admin/forum': typeof AdminForumRoute
+  '/admin/moderators': typeof AdminModeratorsRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/roles': typeof AdminRolesRoute
+  '/admin/stats': typeof AdminStatsRoute
+  '/admin/tools': typeof AdminToolsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/admin/verification': typeof AdminVerificationRoute
+  '/admin/videos': typeof AdminVideosRoute
+  '/articles/$slug': typeof ArticlesSlugRouteWithChildren
+  '/articles/new': typeof ArticlesNewRoute
+  '/forums/$category': typeof ForumsCategoryRoute
+  '/forums/new': typeof ForumsNewRoute
+  '/groups/$id': typeof GroupsIdRoute
+  '/questions/$id': typeof QuestionsIdRoute
+  '/questions/ask': typeof QuestionsAskRoute
+  '/tools/$slug': typeof ToolsSlugRoute
+  '/tools/ai': typeof ToolsAiRoute
+  '/tools/image': typeof ToolsImageRoute
+  '/tools/pdf': typeof ToolsPdfRoute
+  '/tools/seo': typeof ToolsSeoRoute
+  '/tools/text': typeof ToolsTextRoute
+  '/videos/$id': typeof VideosIdRoute
+  '/videos/upload': typeof VideosUploadRoute
+  '/articles/$slug/edit': typeof ArticlesSlugEditRoute
+  '/forums/topic/$id': typeof ForumsTopicIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/admin' | '/auth'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/admin'
+    | '/articles'
+    | '/auth'
+    | '/contact'
+    | '/dashboard'
+    | '/forums'
+    | '/groups'
+    | '/membership'
+    | '/messages'
+    | '/notifications'
+    | '/privacy'
+    | '/profile'
+    | '/questions'
+    | '/search'
+    | '/settings'
+    | '/subscriptions'
+    | '/support'
+    | '/terms'
+    | '/tools'
+    | '/videos'
+    | '/admin/ads'
+    | '/admin/articles'
+    | '/admin/forum'
+    | '/admin/moderators'
+    | '/admin/reports'
+    | '/admin/roles'
+    | '/admin/stats'
+    | '/admin/tools'
+    | '/admin/users'
+    | '/admin/verification'
+    | '/admin/videos'
+    | '/articles/$slug'
+    | '/articles/new'
+    | '/forums/$category'
+    | '/forums/new'
+    | '/groups/$id'
+    | '/questions/$id'
+    | '/questions/ask'
+    | '/tools/$slug'
+    | '/tools/ai'
+    | '/tools/image'
+    | '/tools/pdf'
+    | '/tools/seo'
+    | '/tools/text'
+    | '/videos/$id'
+    | '/videos/upload'
+    | '/articles/$slug/edit'
+    | '/forums/topic/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/admin' | '/auth'
-  id: '__root__' | '/' | '/admin' | '/auth'
+  to:
+    | '/'
+    | '/about'
+    | '/admin'
+    | '/articles'
+    | '/auth'
+    | '/contact'
+    | '/dashboard'
+    | '/forums'
+    | '/groups'
+    | '/membership'
+    | '/messages'
+    | '/notifications'
+    | '/privacy'
+    | '/profile'
+    | '/questions'
+    | '/search'
+    | '/settings'
+    | '/subscriptions'
+    | '/support'
+    | '/terms'
+    | '/tools'
+    | '/videos'
+    | '/admin/ads'
+    | '/admin/articles'
+    | '/admin/forum'
+    | '/admin/moderators'
+    | '/admin/reports'
+    | '/admin/roles'
+    | '/admin/stats'
+    | '/admin/tools'
+    | '/admin/users'
+    | '/admin/verification'
+    | '/admin/videos'
+    | '/articles/$slug'
+    | '/articles/new'
+    | '/forums/$category'
+    | '/forums/new'
+    | '/groups/$id'
+    | '/questions/$id'
+    | '/questions/ask'
+    | '/tools/$slug'
+    | '/tools/ai'
+    | '/tools/image'
+    | '/tools/pdf'
+    | '/tools/seo'
+    | '/tools/text'
+    | '/videos/$id'
+    | '/videos/upload'
+    | '/articles/$slug/edit'
+    | '/forums/topic/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/admin'
+    | '/articles'
+    | '/auth'
+    | '/contact'
+    | '/dashboard'
+    | '/forums'
+    | '/groups'
+    | '/membership'
+    | '/messages'
+    | '/notifications'
+    | '/privacy'
+    | '/profile'
+    | '/questions'
+    | '/search'
+    | '/settings'
+    | '/subscriptions'
+    | '/support'
+    | '/terms'
+    | '/tools'
+    | '/videos'
+    | '/admin/ads'
+    | '/admin/articles'
+    | '/admin/forum'
+    | '/admin/moderators'
+    | '/admin/reports'
+    | '/admin/roles'
+    | '/admin/stats'
+    | '/admin/tools'
+    | '/admin/users'
+    | '/admin/verification'
+    | '/admin/videos'
+    | '/articles/$slug'
+    | '/articles/new'
+    | '/forums/$category'
+    | '/forums/new'
+    | '/groups/$id'
+    | '/questions/$id'
+    | '/questions/ask'
+    | '/tools/$slug'
+    | '/tools/ai'
+    | '/tools/image'
+    | '/tools/pdf'
+    | '/tools/seo'
+    | '/tools/text'
+    | '/videos/$id'
+    | '/videos/upload'
+    | '/articles/$slug/edit'
+    | '/forums/topic/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AdminRoute: typeof AdminRoute
+  AboutRoute: typeof AboutRoute
+  AdminRoute: typeof AdminRouteWithChildren
+  ArticlesRoute: typeof ArticlesRouteWithChildren
   AuthRoute: typeof AuthRoute
+  ContactRoute: typeof ContactRoute
+  DashboardRoute: typeof DashboardRoute
+  ForumsRoute: typeof ForumsRouteWithChildren
+  GroupsRoute: typeof GroupsRouteWithChildren
+  MembershipRoute: typeof MembershipRoute
+  MessagesRoute: typeof MessagesRoute
+  NotificationsRoute: typeof NotificationsRoute
+  PrivacyRoute: typeof PrivacyRoute
+  ProfileRoute: typeof ProfileRoute
+  QuestionsRoute: typeof QuestionsRouteWithChildren
+  SearchRoute: typeof SearchRoute
+  SettingsRoute: typeof SettingsRoute
+  SubscriptionsRoute: typeof SubscriptionsRoute
+  SupportRoute: typeof SupportRoute
+  TermsRoute: typeof TermsRoute
+  ToolsRoute: typeof ToolsRouteWithChildren
+  VideosRoute: typeof VideosRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/videos': {
+      id: '/videos'
+      path: '/videos'
+      fullPath: '/videos'
+      preLoaderRoute: typeof VideosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools': {
+      id: '/tools'
+      path: '/tools'
+      fullPath: '/tools'
+      preLoaderRoute: typeof ToolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/support': {
+      id: '/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof SupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/subscriptions': {
+      id: '/subscriptions'
+      path: '/subscriptions'
+      fullPath: '/subscriptions'
+      preLoaderRoute: typeof SubscriptionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/questions': {
+      id: '/questions'
+      path: '/questions'
+      fullPath: '/questions'
+      preLoaderRoute: typeof QuestionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/messages': {
+      id: '/messages'
+      path: '/messages'
+      fullPath: '/messages'
+      preLoaderRoute: typeof MessagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/membership': {
+      id: '/membership'
+      path: '/membership'
+      fullPath: '/membership'
+      preLoaderRoute: typeof MembershipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/groups': {
+      id: '/groups'
+      path: '/groups'
+      fullPath: '/groups'
+      preLoaderRoute: typeof GroupsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forums': {
+      id: '/forums'
+      path: '/forums'
+      fullPath: '/forums'
+      preLoaderRoute: typeof ForumsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/auth': {
       id: '/auth'
       path: '/auth'
       fullPath: '/auth'
       preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/articles': {
+      id: '/articles'
+      path: '/articles'
+      fullPath: '/articles'
+      preLoaderRoute: typeof ArticlesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin': {
@@ -75,6 +794,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -82,13 +808,357 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/videos/upload': {
+      id: '/videos/upload'
+      path: '/upload'
+      fullPath: '/videos/upload'
+      preLoaderRoute: typeof VideosUploadRouteImport
+      parentRoute: typeof VideosRoute
+    }
+    '/videos/$id': {
+      id: '/videos/$id'
+      path: '/$id'
+      fullPath: '/videos/$id'
+      preLoaderRoute: typeof VideosIdRouteImport
+      parentRoute: typeof VideosRoute
+    }
+    '/tools/text': {
+      id: '/tools/text'
+      path: '/text'
+      fullPath: '/tools/text'
+      preLoaderRoute: typeof ToolsTextRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/seo': {
+      id: '/tools/seo'
+      path: '/seo'
+      fullPath: '/tools/seo'
+      preLoaderRoute: typeof ToolsSeoRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/pdf': {
+      id: '/tools/pdf'
+      path: '/pdf'
+      fullPath: '/tools/pdf'
+      preLoaderRoute: typeof ToolsPdfRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/image': {
+      id: '/tools/image'
+      path: '/image'
+      fullPath: '/tools/image'
+      preLoaderRoute: typeof ToolsImageRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/ai': {
+      id: '/tools/ai'
+      path: '/ai'
+      fullPath: '/tools/ai'
+      preLoaderRoute: typeof ToolsAiRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/$slug': {
+      id: '/tools/$slug'
+      path: '/$slug'
+      fullPath: '/tools/$slug'
+      preLoaderRoute: typeof ToolsSlugRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/questions/ask': {
+      id: '/questions/ask'
+      path: '/ask'
+      fullPath: '/questions/ask'
+      preLoaderRoute: typeof QuestionsAskRouteImport
+      parentRoute: typeof QuestionsRoute
+    }
+    '/questions/$id': {
+      id: '/questions/$id'
+      path: '/$id'
+      fullPath: '/questions/$id'
+      preLoaderRoute: typeof QuestionsIdRouteImport
+      parentRoute: typeof QuestionsRoute
+    }
+    '/groups/$id': {
+      id: '/groups/$id'
+      path: '/$id'
+      fullPath: '/groups/$id'
+      preLoaderRoute: typeof GroupsIdRouteImport
+      parentRoute: typeof GroupsRoute
+    }
+    '/forums/new': {
+      id: '/forums/new'
+      path: '/new'
+      fullPath: '/forums/new'
+      preLoaderRoute: typeof ForumsNewRouteImport
+      parentRoute: typeof ForumsRoute
+    }
+    '/forums/$category': {
+      id: '/forums/$category'
+      path: '/$category'
+      fullPath: '/forums/$category'
+      preLoaderRoute: typeof ForumsCategoryRouteImport
+      parentRoute: typeof ForumsRoute
+    }
+    '/articles/new': {
+      id: '/articles/new'
+      path: '/new'
+      fullPath: '/articles/new'
+      preLoaderRoute: typeof ArticlesNewRouteImport
+      parentRoute: typeof ArticlesRoute
+    }
+    '/articles/$slug': {
+      id: '/articles/$slug'
+      path: '/$slug'
+      fullPath: '/articles/$slug'
+      preLoaderRoute: typeof ArticlesSlugRouteImport
+      parentRoute: typeof ArticlesRoute
+    }
+    '/admin/videos': {
+      id: '/admin/videos'
+      path: '/videos'
+      fullPath: '/admin/videos'
+      preLoaderRoute: typeof AdminVideosRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/verification': {
+      id: '/admin/verification'
+      path: '/verification'
+      fullPath: '/admin/verification'
+      preLoaderRoute: typeof AdminVerificationRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/users': {
+      id: '/admin/users'
+      path: '/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/tools': {
+      id: '/admin/tools'
+      path: '/tools'
+      fullPath: '/admin/tools'
+      preLoaderRoute: typeof AdminToolsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/stats': {
+      id: '/admin/stats'
+      path: '/stats'
+      fullPath: '/admin/stats'
+      preLoaderRoute: typeof AdminStatsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/roles': {
+      id: '/admin/roles'
+      path: '/roles'
+      fullPath: '/admin/roles'
+      preLoaderRoute: typeof AdminRolesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/reports': {
+      id: '/admin/reports'
+      path: '/reports'
+      fullPath: '/admin/reports'
+      preLoaderRoute: typeof AdminReportsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/moderators': {
+      id: '/admin/moderators'
+      path: '/moderators'
+      fullPath: '/admin/moderators'
+      preLoaderRoute: typeof AdminModeratorsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/forum': {
+      id: '/admin/forum'
+      path: '/forum'
+      fullPath: '/admin/forum'
+      preLoaderRoute: typeof AdminForumRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/articles': {
+      id: '/admin/articles'
+      path: '/articles'
+      fullPath: '/admin/articles'
+      preLoaderRoute: typeof AdminArticlesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/ads': {
+      id: '/admin/ads'
+      path: '/ads'
+      fullPath: '/admin/ads'
+      preLoaderRoute: typeof AdminAdsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/forums/topic/$id': {
+      id: '/forums/topic/$id'
+      path: '/topic/$id'
+      fullPath: '/forums/topic/$id'
+      preLoaderRoute: typeof ForumsTopicIdRouteImport
+      parentRoute: typeof ForumsRoute
+    }
+    '/articles/$slug/edit': {
+      id: '/articles/$slug/edit'
+      path: '/edit'
+      fullPath: '/articles/$slug/edit'
+      preLoaderRoute: typeof ArticlesSlugEditRouteImport
+      parentRoute: typeof ArticlesSlugRoute
+    }
   }
 }
 
+interface AdminRouteChildren {
+  AdminAdsRoute: typeof AdminAdsRoute
+  AdminArticlesRoute: typeof AdminArticlesRoute
+  AdminForumRoute: typeof AdminForumRoute
+  AdminModeratorsRoute: typeof AdminModeratorsRoute
+  AdminReportsRoute: typeof AdminReportsRoute
+  AdminRolesRoute: typeof AdminRolesRoute
+  AdminStatsRoute: typeof AdminStatsRoute
+  AdminToolsRoute: typeof AdminToolsRoute
+  AdminUsersRoute: typeof AdminUsersRoute
+  AdminVerificationRoute: typeof AdminVerificationRoute
+  AdminVideosRoute: typeof AdminVideosRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminAdsRoute: AdminAdsRoute,
+  AdminArticlesRoute: AdminArticlesRoute,
+  AdminForumRoute: AdminForumRoute,
+  AdminModeratorsRoute: AdminModeratorsRoute,
+  AdminReportsRoute: AdminReportsRoute,
+  AdminRolesRoute: AdminRolesRoute,
+  AdminStatsRoute: AdminStatsRoute,
+  AdminToolsRoute: AdminToolsRoute,
+  AdminUsersRoute: AdminUsersRoute,
+  AdminVerificationRoute: AdminVerificationRoute,
+  AdminVideosRoute: AdminVideosRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
+interface ArticlesSlugRouteChildren {
+  ArticlesSlugEditRoute: typeof ArticlesSlugEditRoute
+}
+
+const ArticlesSlugRouteChildren: ArticlesSlugRouteChildren = {
+  ArticlesSlugEditRoute: ArticlesSlugEditRoute,
+}
+
+const ArticlesSlugRouteWithChildren = ArticlesSlugRoute._addFileChildren(
+  ArticlesSlugRouteChildren,
+)
+
+interface ArticlesRouteChildren {
+  ArticlesSlugRoute: typeof ArticlesSlugRouteWithChildren
+  ArticlesNewRoute: typeof ArticlesNewRoute
+}
+
+const ArticlesRouteChildren: ArticlesRouteChildren = {
+  ArticlesSlugRoute: ArticlesSlugRouteWithChildren,
+  ArticlesNewRoute: ArticlesNewRoute,
+}
+
+const ArticlesRouteWithChildren = ArticlesRoute._addFileChildren(
+  ArticlesRouteChildren,
+)
+
+interface ForumsRouteChildren {
+  ForumsCategoryRoute: typeof ForumsCategoryRoute
+  ForumsNewRoute: typeof ForumsNewRoute
+  ForumsTopicIdRoute: typeof ForumsTopicIdRoute
+}
+
+const ForumsRouteChildren: ForumsRouteChildren = {
+  ForumsCategoryRoute: ForumsCategoryRoute,
+  ForumsNewRoute: ForumsNewRoute,
+  ForumsTopicIdRoute: ForumsTopicIdRoute,
+}
+
+const ForumsRouteWithChildren =
+  ForumsRoute._addFileChildren(ForumsRouteChildren)
+
+interface GroupsRouteChildren {
+  GroupsIdRoute: typeof GroupsIdRoute
+}
+
+const GroupsRouteChildren: GroupsRouteChildren = {
+  GroupsIdRoute: GroupsIdRoute,
+}
+
+const GroupsRouteWithChildren =
+  GroupsRoute._addFileChildren(GroupsRouteChildren)
+
+interface QuestionsRouteChildren {
+  QuestionsIdRoute: typeof QuestionsIdRoute
+  QuestionsAskRoute: typeof QuestionsAskRoute
+}
+
+const QuestionsRouteChildren: QuestionsRouteChildren = {
+  QuestionsIdRoute: QuestionsIdRoute,
+  QuestionsAskRoute: QuestionsAskRoute,
+}
+
+const QuestionsRouteWithChildren = QuestionsRoute._addFileChildren(
+  QuestionsRouteChildren,
+)
+
+interface ToolsRouteChildren {
+  ToolsSlugRoute: typeof ToolsSlugRoute
+  ToolsAiRoute: typeof ToolsAiRoute
+  ToolsImageRoute: typeof ToolsImageRoute
+  ToolsPdfRoute: typeof ToolsPdfRoute
+  ToolsSeoRoute: typeof ToolsSeoRoute
+  ToolsTextRoute: typeof ToolsTextRoute
+}
+
+const ToolsRouteChildren: ToolsRouteChildren = {
+  ToolsSlugRoute: ToolsSlugRoute,
+  ToolsAiRoute: ToolsAiRoute,
+  ToolsImageRoute: ToolsImageRoute,
+  ToolsPdfRoute: ToolsPdfRoute,
+  ToolsSeoRoute: ToolsSeoRoute,
+  ToolsTextRoute: ToolsTextRoute,
+}
+
+const ToolsRouteWithChildren = ToolsRoute._addFileChildren(ToolsRouteChildren)
+
+interface VideosRouteChildren {
+  VideosIdRoute: typeof VideosIdRoute
+  VideosUploadRoute: typeof VideosUploadRoute
+}
+
+const VideosRouteChildren: VideosRouteChildren = {
+  VideosIdRoute: VideosIdRoute,
+  VideosUploadRoute: VideosUploadRoute,
+}
+
+const VideosRouteWithChildren =
+  VideosRoute._addFileChildren(VideosRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AdminRoute: AdminRoute,
+  AboutRoute: AboutRoute,
+  AdminRoute: AdminRouteWithChildren,
+  ArticlesRoute: ArticlesRouteWithChildren,
   AuthRoute: AuthRoute,
+  ContactRoute: ContactRoute,
+  DashboardRoute: DashboardRoute,
+  ForumsRoute: ForumsRouteWithChildren,
+  GroupsRoute: GroupsRouteWithChildren,
+  MembershipRoute: MembershipRoute,
+  MessagesRoute: MessagesRoute,
+  NotificationsRoute: NotificationsRoute,
+  PrivacyRoute: PrivacyRoute,
+  ProfileRoute: ProfileRoute,
+  QuestionsRoute: QuestionsRouteWithChildren,
+  SearchRoute: SearchRoute,
+  SettingsRoute: SettingsRoute,
+  SubscriptionsRoute: SubscriptionsRoute,
+  SupportRoute: SupportRoute,
+  TermsRoute: TermsRoute,
+  ToolsRoute: ToolsRouteWithChildren,
+  VideosRoute: VideosRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

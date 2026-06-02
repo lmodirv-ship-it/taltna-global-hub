@@ -1,93 +1,81 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { useAuth } from "@/hooks/use-auth";
+import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { Header } from "@/components/site/Header";
-import { Shield, Users, FileText, Video, MessageSquare, BarChart3, Flag, Megaphone } from "lucide-react";
+import { useAuth } from "@/hooks/use-auth";
+import { Users, FileText, MessageSquare, Film, Wrench, Megaphone, Flag, BarChart3, Shield, UserCog, BadgeCheck, LayoutDashboard, Lock } from "lucide-react";
 
-export const Route = createFileRoute("/admin")({
-  head: () => ({
-    meta: [{ title: "لوحة التحكم — Taltna Global" }],
-  }),
-  component: AdminPage,
-});
+export const Route = createFileRoute("/admin")({ component: AdminLayout });
 
-const sections = [
-  { icon: Users, label: "إدارة المستخدمين", value: "2.5M", color: "from-violet-500 to-purple-600" },
-  { icon: FileText, label: "إدارة المقالات", value: "125K", color: "from-blue-500 to-cyan-600" },
-  { icon: Video, label: "إدارة الفيديوهات", value: "75K", color: "from-rose-500 to-pink-600" },
-  { icon: MessageSquare, label: "إدارة المنتديات", value: "350K", color: "from-amber-500 to-orange-600" },
-  { icon: BarChart3, label: "التحليلات والإحصاءات", value: "—", color: "from-emerald-500 to-teal-600" },
-  { icon: Flag, label: "التبليغات والمراجعة", value: "23", color: "from-red-500 to-rose-600" },
-  { icon: Megaphone, label: "إدارة الإعلانات", value: "12", color: "from-yellow-500 to-amber-600" },
-  { icon: Shield, label: "الأمان والصلاحيات", value: "—", color: "from-slate-500 to-slate-700" },
+const adminNav = [
+  { to: "/admin", label: "نظرة عامة", icon: LayoutDashboard, exact: true },
+  { to: "/admin/users", label: "المستخدمون", icon: Users },
+  { to: "/admin/articles", label: "المقالات", icon: FileText },
+  { to: "/admin/forum", label: "المنتدى", icon: MessageSquare },
+  { to: "/admin/videos", label: "الفيديوهات", icon: Film },
+  { to: "/admin/tools", label: "الأدوات", icon: Wrench },
+  { to: "/admin/ads", label: "الإعلانات", icon: Megaphone },
+  { to: "/admin/reports", label: "البلاغات", icon: Flag },
+  { to: "/admin/stats", label: "الإحصائيات", icon: BarChart3 },
+  { to: "/admin/roles", label: "الصلاحيات", icon: Shield },
+  { to: "/admin/moderators", label: "المشرفون", icon: UserCog },
+  { to: "/admin/verification", label: "التوثيق", icon: BadgeCheck },
 ];
 
-function AdminPage() {
+function AdminLayout() {
   const { user, isAdmin, loading } = useAuth();
+  const path = useRouterState({ select: s => s.location.pathname });
 
-  if (loading) return <div className="min-h-screen grid place-items-center">جاري التحميل...</div>;
+  if (loading) return <div className="min-h-screen grid place-items-center text-muted-foreground">جاري التحقق...</div>;
+  if (!user || !isAdmin) return (
+    <div dir="rtl" className="min-h-screen"><Header /><div className="container mx-auto py-20 text-center"><Lock className="h-16 w-16 mx-auto text-destructive mb-4" /><h1 className="text-2xl font-extrabold">غير مصرّح</h1><p className="text-muted-foreground mt-2">لوحة الإدارة مخصصة للمشرفين فقط.</p></div></div>
+  );
 
-  if (!user || !isAdmin) {
-    return (
-      <div dir="rtl" className="min-h-screen">
-        <Header />
-        <div className="container mx-auto px-4 py-20">
-          <div className="max-w-md mx-auto glass rounded-2xl p-8 text-center space-y-4">
-            <Shield className="h-12 w-12 text-destructive mx-auto" />
-            <h1 className="text-2xl font-bold">وصول مرفوض</h1>
-            <p className="text-muted-foreground text-sm">
-              هذه الصفحة مخصصة للمشرفين فقط. يرجى تسجيل الدخول بحساب يملك الصلاحيات.
-            </p>
-            <Link to="/auth" className="btn-hero inline-flex px-6 py-3 rounded-xl font-bold">
-              تسجيل الدخول
-            </Link>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  const isOverview = path === "/admin";
 
   return (
     <div dir="rtl" className="min-h-screen">
       <Header />
-      <main className="container mx-auto px-4 py-8 space-y-6">
-        <div className="flex items-center gap-3">
-          <div className="h-12 w-12 rounded-xl btn-hero grid place-items-center">
-            <Shield className="h-6 w-6 text-primary-foreground" />
-          </div>
-          <div>
-            <h1 className="text-3xl font-extrabold gradient-text">لوحة التحكم المتقدمة</h1>
-            <p className="text-sm text-muted-foreground">مرحباً {user.email} — مالك المنصة</p>
-          </div>
+      <div className="container mx-auto px-4 py-6">
+        <div className="grid grid-cols-12 gap-5">
+          <aside className="col-span-12 lg:col-span-3">
+            <div className="glass rounded-2xl p-3 sticky top-20">
+              <h3 className="font-bold px-2 py-2 text-sm gradient-text">لوحة الإدارة</h3>
+              <ul className="space-y-1">
+                {adminNav.map(n=>(
+                  <li key={n.to}>
+                    <Link to={n.to} className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition ${path===n.to?"btn-hero":"hover:bg-secondary/60"}`}>
+                      <n.icon className="h-4 w-4" /> {n.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
+          <main className="col-span-12 lg:col-span-9">
+            {isOverview ? <AdminOverview /> : <Outlet />}
+          </main>
         </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {sections.map((s) => (
-            <button key={s.label} className="glass rounded-2xl p-5 text-right hover:scale-[1.02] transition group">
-              <div className={`h-12 w-12 rounded-xl bg-gradient-to-br ${s.color} grid place-items-center mb-4 group-hover:scale-110 transition`}>
-                <s.icon className="h-6 w-6 text-white" />
-              </div>
-              <div className="text-2xl font-extrabold">{s.value}</div>
-              <div className="text-sm text-muted-foreground mt-1">{s.label}</div>
-            </button>
-          ))}
-        </div>
-
-        <div className="glass rounded-2xl p-6">
-          <h2 className="text-lg font-bold mb-4">النشاط الأخير</h2>
-          <ul className="space-y-3 text-sm">
-            {[
-              "تسجيل ٢٤ مستخدم جديد في آخر ساعة",
-              "نشر ١٢ مقال جديد بانتظار المراجعة",
-              "٣ بلاغات جديدة تتطلب اهتمامك",
-              "ارتفاع التفاعل بنسبة ١٨٪ هذا الأسبوع",
-            ].map((t, i) => (
-              <li key={i} className="flex items-center gap-3 p-3 rounded-lg bg-secondary/40">
-                <span className="h-2 w-2 rounded-full bg-primary" /> {t}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </main>
+      </div>
     </div>
+  );
+}
+
+function AdminOverview() {
+  const stats = [
+    { l: "إجمالي المستخدمين", v: "248,420", c: "+12.4%" },
+    { l: "المقالات المنشورة", v: "84,219", c: "+8.1%" },
+    { l: "البلاغات النشطة", v: "23", c: "-15%" },
+    { l: "الإيرادات (شهري)", v: "$48.2K", c: "+24%" },
+  ];
+  return (
+    <>
+      <div className="glass rounded-2xl p-5 mb-5"><h1 className="text-2xl font-extrabold gradient-text">مرحباً بك في لوحة الإدارة</h1><p className="text-sm text-muted-foreground mt-1">إدارة كاملة لمنصة Taltna Global</p></div>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-5">
+        {stats.map(s=>(<div key={s.l} className="glass rounded-2xl p-5"><p className="text-xs text-muted-foreground">{s.l}</p><p className="text-2xl font-extrabold mt-1">{s.v}</p><p className="text-xs text-success mt-1">{s.c}</p></div>))}
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="glass rounded-2xl p-5"><h3 className="font-bold mb-3">آخر التسجيلات</h3><ul className="text-sm space-y-2">{["محمد العتيبي","سارة الزياني","Karim B.","Lina F.","Ahmed M."].map(n=>(<li key={n} className="flex justify-between text-muted-foreground"><span>{n}</span><span>اليوم</span></li>))}</ul></div>
+        <div className="glass rounded-2xl p-5"><h3 className="font-bold mb-3">بلاغات تنتظر المراجعة</h3><ul className="text-sm space-y-2 text-muted-foreground"><li>تعليق مسيء — #4892</li><li>محتوى مكرر — #4891</li><li>انتحال هوية — #4889</li></ul></div>
+      </div>
+    </>
   );
 }

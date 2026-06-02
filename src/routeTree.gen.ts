@@ -46,6 +46,17 @@ import { Route as ForumsNewRouteImport } from './routes/forums.new'
 import { Route as ForumsCategoryRouteImport } from './routes/forums.$category'
 import { Route as ArticlesNewRouteImport } from './routes/articles.new'
 import { Route as ArticlesSlugRouteImport } from './routes/articles.$slug'
+import { Route as AdminVideosRouteImport } from './routes/admin.videos'
+import { Route as AdminVerificationRouteImport } from './routes/admin.verification'
+import { Route as AdminUsersRouteImport } from './routes/admin.users'
+import { Route as AdminToolsRouteImport } from './routes/admin.tools'
+import { Route as AdminStatsRouteImport } from './routes/admin.stats'
+import { Route as AdminRolesRouteImport } from './routes/admin.roles'
+import { Route as AdminReportsRouteImport } from './routes/admin.reports'
+import { Route as AdminModeratorsRouteImport } from './routes/admin.moderators'
+import { Route as AdminForumRouteImport } from './routes/admin.forum'
+import { Route as AdminArticlesRouteImport } from './routes/admin.articles'
+import { Route as AdminAdsRouteImport } from './routes/admin.ads'
 import { Route as ForumsTopicIdRouteImport } from './routes/forums.topic.$id'
 import { Route as ArticlesSlugEditRouteImport } from './routes/articles.$slug.edit'
 
@@ -234,6 +245,61 @@ const ArticlesSlugRoute = ArticlesSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => ArticlesRoute,
 } as any)
+const AdminVideosRoute = AdminVideosRouteImport.update({
+  id: '/videos',
+  path: '/videos',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminVerificationRoute = AdminVerificationRouteImport.update({
+  id: '/verification',
+  path: '/verification',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminToolsRoute = AdminToolsRouteImport.update({
+  id: '/tools',
+  path: '/tools',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminStatsRoute = AdminStatsRouteImport.update({
+  id: '/stats',
+  path: '/stats',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminRolesRoute = AdminRolesRouteImport.update({
+  id: '/roles',
+  path: '/roles',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminReportsRoute = AdminReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminModeratorsRoute = AdminModeratorsRouteImport.update({
+  id: '/moderators',
+  path: '/moderators',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminForumRoute = AdminForumRouteImport.update({
+  id: '/forum',
+  path: '/forum',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminArticlesRoute = AdminArticlesRouteImport.update({
+  id: '/articles',
+  path: '/articles',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAdsRoute = AdminAdsRouteImport.update({
+  id: '/ads',
+  path: '/ads',
+  getParentRoute: () => AdminRoute,
+} as any)
 const ForumsTopicIdRoute = ForumsTopicIdRouteImport.update({
   id: '/topic/$id',
   path: '/topic/$id',
@@ -248,7 +314,7 @@ const ArticlesSlugEditRoute = ArticlesSlugEditRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/admin': typeof AdminRoute
+  '/admin': typeof AdminRouteWithChildren
   '/articles': typeof ArticlesRouteWithChildren
   '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
@@ -268,6 +334,17 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/tools': typeof ToolsRouteWithChildren
   '/videos': typeof VideosRouteWithChildren
+  '/admin/ads': typeof AdminAdsRoute
+  '/admin/articles': typeof AdminArticlesRoute
+  '/admin/forum': typeof AdminForumRoute
+  '/admin/moderators': typeof AdminModeratorsRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/roles': typeof AdminRolesRoute
+  '/admin/stats': typeof AdminStatsRoute
+  '/admin/tools': typeof AdminToolsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/admin/verification': typeof AdminVerificationRoute
+  '/admin/videos': typeof AdminVideosRoute
   '/articles/$slug': typeof ArticlesSlugRouteWithChildren
   '/articles/new': typeof ArticlesNewRoute
   '/forums/$category': typeof ForumsCategoryRoute
@@ -289,7 +366,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/admin': typeof AdminRoute
+  '/admin': typeof AdminRouteWithChildren
   '/articles': typeof ArticlesRouteWithChildren
   '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
@@ -309,6 +386,17 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/tools': typeof ToolsRouteWithChildren
   '/videos': typeof VideosRouteWithChildren
+  '/admin/ads': typeof AdminAdsRoute
+  '/admin/articles': typeof AdminArticlesRoute
+  '/admin/forum': typeof AdminForumRoute
+  '/admin/moderators': typeof AdminModeratorsRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/roles': typeof AdminRolesRoute
+  '/admin/stats': typeof AdminStatsRoute
+  '/admin/tools': typeof AdminToolsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/admin/verification': typeof AdminVerificationRoute
+  '/admin/videos': typeof AdminVideosRoute
   '/articles/$slug': typeof ArticlesSlugRouteWithChildren
   '/articles/new': typeof ArticlesNewRoute
   '/forums/$category': typeof ForumsCategoryRoute
@@ -331,7 +419,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/admin': typeof AdminRoute
+  '/admin': typeof AdminRouteWithChildren
   '/articles': typeof ArticlesRouteWithChildren
   '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
@@ -351,6 +439,17 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/tools': typeof ToolsRouteWithChildren
   '/videos': typeof VideosRouteWithChildren
+  '/admin/ads': typeof AdminAdsRoute
+  '/admin/articles': typeof AdminArticlesRoute
+  '/admin/forum': typeof AdminForumRoute
+  '/admin/moderators': typeof AdminModeratorsRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/roles': typeof AdminRolesRoute
+  '/admin/stats': typeof AdminStatsRoute
+  '/admin/tools': typeof AdminToolsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/admin/verification': typeof AdminVerificationRoute
+  '/admin/videos': typeof AdminVideosRoute
   '/articles/$slug': typeof ArticlesSlugRouteWithChildren
   '/articles/new': typeof ArticlesNewRoute
   '/forums/$category': typeof ForumsCategoryRoute
@@ -394,6 +493,17 @@ export interface FileRouteTypes {
     | '/terms'
     | '/tools'
     | '/videos'
+    | '/admin/ads'
+    | '/admin/articles'
+    | '/admin/forum'
+    | '/admin/moderators'
+    | '/admin/reports'
+    | '/admin/roles'
+    | '/admin/stats'
+    | '/admin/tools'
+    | '/admin/users'
+    | '/admin/verification'
+    | '/admin/videos'
     | '/articles/$slug'
     | '/articles/new'
     | '/forums/$category'
@@ -435,6 +545,17 @@ export interface FileRouteTypes {
     | '/terms'
     | '/tools'
     | '/videos'
+    | '/admin/ads'
+    | '/admin/articles'
+    | '/admin/forum'
+    | '/admin/moderators'
+    | '/admin/reports'
+    | '/admin/roles'
+    | '/admin/stats'
+    | '/admin/tools'
+    | '/admin/users'
+    | '/admin/verification'
+    | '/admin/videos'
     | '/articles/$slug'
     | '/articles/new'
     | '/forums/$category'
@@ -476,6 +597,17 @@ export interface FileRouteTypes {
     | '/terms'
     | '/tools'
     | '/videos'
+    | '/admin/ads'
+    | '/admin/articles'
+    | '/admin/forum'
+    | '/admin/moderators'
+    | '/admin/reports'
+    | '/admin/roles'
+    | '/admin/stats'
+    | '/admin/tools'
+    | '/admin/users'
+    | '/admin/verification'
+    | '/admin/videos'
     | '/articles/$slug'
     | '/articles/new'
     | '/forums/$category'
@@ -498,7 +630,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  AdminRoute: typeof AdminRoute
+  AdminRoute: typeof AdminRouteWithChildren
   ArticlesRoute: typeof ArticlesRouteWithChildren
   AuthRoute: typeof AuthRoute
   ContactRoute: typeof ContactRoute
@@ -781,6 +913,83 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ArticlesSlugRouteImport
       parentRoute: typeof ArticlesRoute
     }
+    '/admin/videos': {
+      id: '/admin/videos'
+      path: '/videos'
+      fullPath: '/admin/videos'
+      preLoaderRoute: typeof AdminVideosRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/verification': {
+      id: '/admin/verification'
+      path: '/verification'
+      fullPath: '/admin/verification'
+      preLoaderRoute: typeof AdminVerificationRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/users': {
+      id: '/admin/users'
+      path: '/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/tools': {
+      id: '/admin/tools'
+      path: '/tools'
+      fullPath: '/admin/tools'
+      preLoaderRoute: typeof AdminToolsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/stats': {
+      id: '/admin/stats'
+      path: '/stats'
+      fullPath: '/admin/stats'
+      preLoaderRoute: typeof AdminStatsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/roles': {
+      id: '/admin/roles'
+      path: '/roles'
+      fullPath: '/admin/roles'
+      preLoaderRoute: typeof AdminRolesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/reports': {
+      id: '/admin/reports'
+      path: '/reports'
+      fullPath: '/admin/reports'
+      preLoaderRoute: typeof AdminReportsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/moderators': {
+      id: '/admin/moderators'
+      path: '/moderators'
+      fullPath: '/admin/moderators'
+      preLoaderRoute: typeof AdminModeratorsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/forum': {
+      id: '/admin/forum'
+      path: '/forum'
+      fullPath: '/admin/forum'
+      preLoaderRoute: typeof AdminForumRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/articles': {
+      id: '/admin/articles'
+      path: '/articles'
+      fullPath: '/admin/articles'
+      preLoaderRoute: typeof AdminArticlesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/ads': {
+      id: '/admin/ads'
+      path: '/ads'
+      fullPath: '/admin/ads'
+      preLoaderRoute: typeof AdminAdsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/forums/topic/$id': {
       id: '/forums/topic/$id'
       path: '/topic/$id'
@@ -797,6 +1006,36 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface AdminRouteChildren {
+  AdminAdsRoute: typeof AdminAdsRoute
+  AdminArticlesRoute: typeof AdminArticlesRoute
+  AdminForumRoute: typeof AdminForumRoute
+  AdminModeratorsRoute: typeof AdminModeratorsRoute
+  AdminReportsRoute: typeof AdminReportsRoute
+  AdminRolesRoute: typeof AdminRolesRoute
+  AdminStatsRoute: typeof AdminStatsRoute
+  AdminToolsRoute: typeof AdminToolsRoute
+  AdminUsersRoute: typeof AdminUsersRoute
+  AdminVerificationRoute: typeof AdminVerificationRoute
+  AdminVideosRoute: typeof AdminVideosRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminAdsRoute: AdminAdsRoute,
+  AdminArticlesRoute: AdminArticlesRoute,
+  AdminForumRoute: AdminForumRoute,
+  AdminModeratorsRoute: AdminModeratorsRoute,
+  AdminReportsRoute: AdminReportsRoute,
+  AdminRolesRoute: AdminRolesRoute,
+  AdminStatsRoute: AdminStatsRoute,
+  AdminToolsRoute: AdminToolsRoute,
+  AdminUsersRoute: AdminUsersRoute,
+  AdminVerificationRoute: AdminVerificationRoute,
+  AdminVideosRoute: AdminVideosRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
 interface ArticlesSlugRouteChildren {
   ArticlesSlugEditRoute: typeof ArticlesSlugEditRoute
@@ -900,7 +1139,7 @@ const VideosRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  AdminRoute: AdminRoute,
+  AdminRoute: AdminRouteWithChildren,
   ArticlesRoute: ArticlesRouteWithChildren,
   AuthRoute: AuthRoute,
   ContactRoute: ContactRoute,

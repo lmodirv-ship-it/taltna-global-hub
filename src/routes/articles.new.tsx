@@ -33,7 +33,7 @@ function NewArticle() {
     onError: (e: Error) => toast.error(e.message),
   });
 
-  if (loading) return <PageShell title="..." />;
+  if (loading) return <PageShell title="...">جارٍ التحميل</PageShell>;
   if (!user) return <Navigate to="/auth" />;
 
   const submit = () => {

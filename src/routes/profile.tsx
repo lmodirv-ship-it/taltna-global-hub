@@ -19,7 +19,7 @@ function Profile() {
             <div className="flex-1 mt-12">
               <div className="flex items-center gap-2"><h2 className="text-xl font-extrabold">{name}</h2><Crown className="h-5 w-5 text-gold" /><span className="text-xs px-2 py-0.5 rounded-md bg-success/20 text-success">موثّق ✓</span></div>
               <p className="text-sm text-muted-foreground">@{name} • كاتب ومطوّر</p>
-              <div className="flex gap-4 text-xs text-muted-foreground mt-2"><span className="flex items-center gap-1"><MapPin className="h-3 w-3" /> الرياض</span><span className="flex items-center gap-1"><LIcon className="h-3 w-3" /> taltna.global/u</span><span className="flex items-center gap-1"><Calendar className="h-3 w-3" /> انضم يناير 2025</span></div>
+              <div className="flex gap-4 text-xs text-muted-foreground mt-2"><span className="flex items-center gap-1"><MapPin className="h-3 w-3" /> الرياض</span><span className="flex items-center gap-1"><LIcon className="h-3 w-3" /> hn-global.com/u</span><span className="flex items-center gap-1"><Calendar className="h-3 w-3" /> انضم يناير 2025</span></div>
             </div>
             <div className="mt-12 flex gap-2"><button className="btn-hero px-4 py-2 rounded-xl text-sm font-bold">متابعة</button><button className="glass px-4 py-2 rounded-xl text-sm">رسالة</button></div>
           </div>

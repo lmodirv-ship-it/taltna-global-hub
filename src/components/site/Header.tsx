@@ -34,7 +34,7 @@ export function Header() {
             <div className="absolute inset-0 rounded-xl bg-primary/30 blur-xl -z-10" />
           </div>
           <div className="hidden sm:flex flex-col leading-tight">
-            <span className="font-extrabold text-lg gradient-text">Taltna Global</span>
+            <span className="font-extrabold text-lg gradient-text">HN-global</span>
             <span className="text-[10px] text-muted-foreground">منصة تجمع العقول المبدعة</span>
           </div>
         </Link>

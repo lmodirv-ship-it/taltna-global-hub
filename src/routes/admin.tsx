@@ -68,7 +68,7 @@ function AdminOverview() {
   ];
   return (
     <>
-      <div className="glass rounded-2xl p-5 mb-5"><h1 className="text-2xl font-extrabold gradient-text">مرحباً بك في لوحة الإدارة</h1><p className="text-sm text-muted-foreground mt-1">إدارة كاملة لمنصة Taltna Global</p></div>
+      <div className="glass rounded-2xl p-5 mb-5"><h1 className="text-2xl font-extrabold gradient-text">مرحباً بك في لوحة الإدارة</h1><p className="text-sm text-muted-foreground mt-1">إدارة كاملة لمنصة HN-global</p></div>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-5">
         {stats.map(s=>(<div key={s.l} className="glass rounded-2xl p-5"><p className="text-xs text-muted-foreground">{s.l}</p><p className="text-2xl font-extrabold mt-1">{s.v}</p><p className="text-xs text-success mt-1">{s.c}</p></div>))}
       </div>

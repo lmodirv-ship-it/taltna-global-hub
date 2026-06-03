@@ -5,7 +5,7 @@ import { articlesListQuery, authorName, timeAgo, type ArticleRow } from "@/lib/a
 import { Clock, Eye, PenLine, Filter } from "lucide-react";
 
 export const Route = createFileRoute("/articles")({
-  head: () => ({ meta: [{ title: "المقالات — Taltna Global" }] }),
+  head: () => ({ meta: [{ title: "المقالات — HN-global" }] }),
   loader: ({ context }) => context.queryClient.ensureQueryData(articlesListQuery(60)),
   component: ArticlesPage,
   errorComponent: ({ error }) => (

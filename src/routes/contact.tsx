@@ -9,7 +9,7 @@ function Contact() {
     <PageShell title="اتصل بنا" subtitle="نحن نحب أن نسمع منك" crumbs={[{ label: "اتصل بنا" }]}>
       <div className="grid grid-cols-12 gap-5">
         <div className="col-span-12 md:col-span-4 space-y-3">
-          {[{i:Mail,t:"البريد",d:"hello@taltna.global"},{i:Phone,t:"الهاتف",d:"+966 50 000 0000"},{i:MapPin,t:"العنوان",d:"الرياض، المملكة العربية السعودية"}].map(x=>(
+          {[{i:Mail,t:"البريد",d:"hello@hn-global.com"},{i:Phone,t:"الهاتف",d:"+966 50 000 0000"},{i:MapPin,t:"العنوان",d:"الرياض، المملكة العربية السعودية"}].map(x=>(
             <div key={x.t} className="glass rounded-2xl p-5 flex items-start gap-3"><div className="h-10 w-10 rounded-xl btn-hero grid place-items-center"><x.i className="h-4 w-4 text-primary-foreground" /></div><div><p className="font-bold">{x.t}</p><p className="text-sm text-muted-foreground">{x.d}</p></div></div>
           ))}
         </div>

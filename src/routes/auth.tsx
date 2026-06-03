@@ -8,8 +8,8 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "تسجيل الدخول — Taltna Global" },
-      { name: "description", content: "سجّل دخولك أو أنشئ حساباً جديداً في منصة Taltna Global." },
+      { title: "تسجيل الدخول — HN-global" },
+      { name: "description", content: "سجّل دخولك أو أنشئ حساباً جديداً في منصة HN-global." },
     ],
   }),
   component: AuthPage,
@@ -67,7 +67,7 @@ function AuthPage() {
             <Globe className="h-6 w-6 text-primary" />
           </div>
           <div>
-            <div className="font-extrabold text-xl">Taltna Global</div>
+            <div className="font-extrabold text-xl">HN-global</div>
             <div className="text-xs opacity-80">منصة تجمع العقول المبدعة</div>
           </div>
         </Link>
@@ -87,7 +87,7 @@ function AuthPage() {
             ))}
           </div>
         </div>
-        <div className="relative text-xs opacity-70">© 2026 Taltna Global. جميع الحقوق محفوظة.</div>
+        <div className="relative text-xs opacity-70">© 2026 HN-global. جميع الحقوق محفوظة.</div>
       </div>
 
       {/* Form side */}

@@ -16,7 +16,7 @@ function Support() {
   return (
     <PageShell title="الدعم والمساعدة" subtitle="نحن هنا لمساعدتك في أي وقت" crumbs={[{ label: "الدعم" }]}>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-        {[{i:Book,t:"مركز المعرفة",d:"+500 مقال شامل"},{i:MessageSquare,t:"دردشة مباشرة",d:"رد خلال 5 دقائق"},{i:Mail,t:"بريد الدعم",d:"support@taltna.global"}].map(x=>(
+        {[{i:Book,t:"مركز المعرفة",d:"+500 مقال شامل"},{i:MessageSquare,t:"دردشة مباشرة",d:"رد خلال 5 دقائق"},{i:Mail,t:"بريد الدعم",d:"support@hn-global.com"}].map(x=>(
           <div key={x.t} className="glass rounded-2xl p-5 text-center"><x.i className="h-8 w-8 mx-auto text-primary mb-3" /><h3 className="font-bold">{x.t}</h3><p className="text-sm text-muted-foreground mt-1">{x.d}</p></div>
         ))}
       </div>

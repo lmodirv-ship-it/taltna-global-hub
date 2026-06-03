@@ -98,9 +98,15 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <Outlet />
+        <div dir="rtl" className="flex min-h-screen flex-col">
+          <div className="flex-1"><Outlet /></div>
+          <footer className="border-t border-border/60 py-5 text-center text-xs text-muted-foreground">
+            © 2026 جميع الحقوق محفوظة El Hassani Moulay Ismail · Groupe HN
+          </footer>
+        </div>
         <Toaster richColors position="top-center" />
       </AuthProvider>
     </QueryClientProvider>
   );
 }
+

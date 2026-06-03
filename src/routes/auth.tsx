@@ -87,7 +87,7 @@ function AuthPage() {
             ))}
           </div>
         </div>
-        <div className="relative text-xs opacity-70">© 2026 HN-global. جميع الحقوق محفوظة.</div>
+        <div className="relative text-xs opacity-70">© 2026 جميع الحقوق محفوظة El Hassani Moulay Ismail · Groupe HN</div>
       </div>
 
       {/* Form side */}

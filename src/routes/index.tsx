@@ -9,9 +9,9 @@ import { RightRail } from "@/components/site/RightRail";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Taltna Global — منصة المعرفة والإبداع العالمية" },
+      { title: "HN-global — منصة المعرفة والإبداع العالمية" },
       { name: "description", content: "انضم لمجتمع عالمي من المبدعين والخبراء — مقالات، فيديوهات، مناقشات، أسئلة وأجوبة بلغات متعددة." },
-      { property: "og:title", content: "Taltna Global" },
+      { property: "og:title", content: "HN-global" },
       { property: "og:description", content: "منصة عالمية للمعرفة والإبداع" },
     ],
   }),

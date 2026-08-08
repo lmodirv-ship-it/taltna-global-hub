@@ -34,6 +34,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as VideosUploadRouteImport } from './routes/videos.upload'
 import { Route as VideosIdRouteImport } from './routes/videos.$id'
+import { Route as UserDashboardRouteImport } from './routes/user.dashboard'
 import { Route as ToolsTextRouteImport } from './routes/tools.text'
 import { Route as ToolsSeoRouteImport } from './routes/tools.seo'
 import { Route as ToolsPdfRouteImport } from './routes/tools.pdf'
@@ -42,7 +43,11 @@ import { Route as ToolsAiRouteImport } from './routes/tools.ai'
 import { Route as ToolsSlugRouteImport } from './routes/tools.$slug'
 import { Route as QuestionsAskRouteImport } from './routes/questions.ask'
 import { Route as QuestionsIdRouteImport } from './routes/questions.$id'
+import { Route as OwnerVisitsRouteImport } from './routes/owner.visits'
+import { Route as OwnerUsersRouteImport } from './routes/owner.users'
+import { Route as OwnerRolesRouteImport } from './routes/owner.roles'
 import { Route as OwnerDashboardRouteImport } from './routes/owner.dashboard'
+import { Route as OwnerAppsRouteImport } from './routes/owner.apps'
 import { Route as GroupsIdRouteImport } from './routes/groups.$id'
 import { Route as ForumsNewRouteImport } from './routes/forums.new'
 import { Route as ForumsCategoryRouteImport } from './routes/forums.$category'
@@ -187,6 +192,11 @@ const VideosIdRoute = VideosIdRouteImport.update({
   path: '/$id',
   getParentRoute: () => VideosRoute,
 } as any)
+const UserDashboardRoute = UserDashboardRouteImport.update({
+  id: '/user/dashboard',
+  path: '/user/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToolsTextRoute = ToolsTextRouteImport.update({
   id: '/text',
   path: '/text',
@@ -227,9 +237,29 @@ const QuestionsIdRoute = QuestionsIdRouteImport.update({
   path: '/$id',
   getParentRoute: () => QuestionsRoute,
 } as any)
+const OwnerVisitsRoute = OwnerVisitsRouteImport.update({
+  id: '/visits',
+  path: '/visits',
+  getParentRoute: () => OwnerRoute,
+} as any)
+const OwnerUsersRoute = OwnerUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => OwnerRoute,
+} as any)
+const OwnerRolesRoute = OwnerRolesRouteImport.update({
+  id: '/roles',
+  path: '/roles',
+  getParentRoute: () => OwnerRoute,
+} as any)
 const OwnerDashboardRoute = OwnerDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
+  getParentRoute: () => OwnerRoute,
+} as any)
+const OwnerAppsRoute = OwnerAppsRouteImport.update({
+  id: '/apps',
+  path: '/apps',
   getParentRoute: () => OwnerRoute,
 } as any)
 const GroupsIdRoute = GroupsIdRouteImport.update({
@@ -363,7 +393,11 @@ export interface FileRoutesByFullPath {
   '/forums/$category': typeof ForumsCategoryRoute
   '/forums/new': typeof ForumsNewRoute
   '/groups/$id': typeof GroupsIdRoute
+  '/owner/apps': typeof OwnerAppsRoute
   '/owner/dashboard': typeof OwnerDashboardRoute
+  '/owner/roles': typeof OwnerRolesRoute
+  '/owner/users': typeof OwnerUsersRoute
+  '/owner/visits': typeof OwnerVisitsRoute
   '/questions/$id': typeof QuestionsIdRoute
   '/questions/ask': typeof QuestionsAskRoute
   '/tools/$slug': typeof ToolsSlugRoute
@@ -372,6 +406,7 @@ export interface FileRoutesByFullPath {
   '/tools/pdf': typeof ToolsPdfRoute
   '/tools/seo': typeof ToolsSeoRoute
   '/tools/text': typeof ToolsTextRoute
+  '/user/dashboard': typeof UserDashboardRoute
   '/videos/$id': typeof VideosIdRoute
   '/videos/upload': typeof VideosUploadRoute
   '/articles/$slug/edit': typeof ArticlesSlugEditRoute
@@ -417,7 +452,11 @@ export interface FileRoutesByTo {
   '/forums/$category': typeof ForumsCategoryRoute
   '/forums/new': typeof ForumsNewRoute
   '/groups/$id': typeof GroupsIdRoute
+  '/owner/apps': typeof OwnerAppsRoute
   '/owner/dashboard': typeof OwnerDashboardRoute
+  '/owner/roles': typeof OwnerRolesRoute
+  '/owner/users': typeof OwnerUsersRoute
+  '/owner/visits': typeof OwnerVisitsRoute
   '/questions/$id': typeof QuestionsIdRoute
   '/questions/ask': typeof QuestionsAskRoute
   '/tools/$slug': typeof ToolsSlugRoute
@@ -426,6 +465,7 @@ export interface FileRoutesByTo {
   '/tools/pdf': typeof ToolsPdfRoute
   '/tools/seo': typeof ToolsSeoRoute
   '/tools/text': typeof ToolsTextRoute
+  '/user/dashboard': typeof UserDashboardRoute
   '/videos/$id': typeof VideosIdRoute
   '/videos/upload': typeof VideosUploadRoute
   '/articles/$slug/edit': typeof ArticlesSlugEditRoute
@@ -472,7 +512,11 @@ export interface FileRoutesById {
   '/forums/$category': typeof ForumsCategoryRoute
   '/forums/new': typeof ForumsNewRoute
   '/groups/$id': typeof GroupsIdRoute
+  '/owner/apps': typeof OwnerAppsRoute
   '/owner/dashboard': typeof OwnerDashboardRoute
+  '/owner/roles': typeof OwnerRolesRoute
+  '/owner/users': typeof OwnerUsersRoute
+  '/owner/visits': typeof OwnerVisitsRoute
   '/questions/$id': typeof QuestionsIdRoute
   '/questions/ask': typeof QuestionsAskRoute
   '/tools/$slug': typeof ToolsSlugRoute
@@ -481,6 +525,7 @@ export interface FileRoutesById {
   '/tools/pdf': typeof ToolsPdfRoute
   '/tools/seo': typeof ToolsSeoRoute
   '/tools/text': typeof ToolsTextRoute
+  '/user/dashboard': typeof UserDashboardRoute
   '/videos/$id': typeof VideosIdRoute
   '/videos/upload': typeof VideosUploadRoute
   '/articles/$slug/edit': typeof ArticlesSlugEditRoute
@@ -528,7 +573,11 @@ export interface FileRouteTypes {
     | '/forums/$category'
     | '/forums/new'
     | '/groups/$id'
+    | '/owner/apps'
     | '/owner/dashboard'
+    | '/owner/roles'
+    | '/owner/users'
+    | '/owner/visits'
     | '/questions/$id'
     | '/questions/ask'
     | '/tools/$slug'
@@ -537,6 +586,7 @@ export interface FileRouteTypes {
     | '/tools/pdf'
     | '/tools/seo'
     | '/tools/text'
+    | '/user/dashboard'
     | '/videos/$id'
     | '/videos/upload'
     | '/articles/$slug/edit'
@@ -582,7 +632,11 @@ export interface FileRouteTypes {
     | '/forums/$category'
     | '/forums/new'
     | '/groups/$id'
+    | '/owner/apps'
     | '/owner/dashboard'
+    | '/owner/roles'
+    | '/owner/users'
+    | '/owner/visits'
     | '/questions/$id'
     | '/questions/ask'
     | '/tools/$slug'
@@ -591,6 +645,7 @@ export interface FileRouteTypes {
     | '/tools/pdf'
     | '/tools/seo'
     | '/tools/text'
+    | '/user/dashboard'
     | '/videos/$id'
     | '/videos/upload'
     | '/articles/$slug/edit'
@@ -636,7 +691,11 @@ export interface FileRouteTypes {
     | '/forums/$category'
     | '/forums/new'
     | '/groups/$id'
+    | '/owner/apps'
     | '/owner/dashboard'
+    | '/owner/roles'
+    | '/owner/users'
+    | '/owner/visits'
     | '/questions/$id'
     | '/questions/ask'
     | '/tools/$slug'
@@ -645,6 +704,7 @@ export interface FileRouteTypes {
     | '/tools/pdf'
     | '/tools/seo'
     | '/tools/text'
+    | '/user/dashboard'
     | '/videos/$id'
     | '/videos/upload'
     | '/articles/$slug/edit'
@@ -675,6 +735,7 @@ export interface RootRouteChildren {
   TermsRoute: typeof TermsRoute
   ToolsRoute: typeof ToolsRouteWithChildren
   VideosRoute: typeof VideosRouteWithChildren
+  UserDashboardRoute: typeof UserDashboardRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -854,6 +915,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VideosIdRouteImport
       parentRoute: typeof VideosRoute
     }
+    '/user/dashboard': {
+      id: '/user/dashboard'
+      path: '/user/dashboard'
+      fullPath: '/user/dashboard'
+      preLoaderRoute: typeof UserDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tools/text': {
       id: '/tools/text'
       path: '/text'
@@ -910,11 +978,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QuestionsIdRouteImport
       parentRoute: typeof QuestionsRoute
     }
+    '/owner/visits': {
+      id: '/owner/visits'
+      path: '/visits'
+      fullPath: '/owner/visits'
+      preLoaderRoute: typeof OwnerVisitsRouteImport
+      parentRoute: typeof OwnerRoute
+    }
+    '/owner/users': {
+      id: '/owner/users'
+      path: '/users'
+      fullPath: '/owner/users'
+      preLoaderRoute: typeof OwnerUsersRouteImport
+      parentRoute: typeof OwnerRoute
+    }
+    '/owner/roles': {
+      id: '/owner/roles'
+      path: '/roles'
+      fullPath: '/owner/roles'
+      preLoaderRoute: typeof OwnerRolesRouteImport
+      parentRoute: typeof OwnerRoute
+    }
     '/owner/dashboard': {
       id: '/owner/dashboard'
       path: '/dashboard'
       fullPath: '/owner/dashboard'
       preLoaderRoute: typeof OwnerDashboardRouteImport
+      parentRoute: typeof OwnerRoute
+    }
+    '/owner/apps': {
+      id: '/owner/apps'
+      path: '/apps'
+      fullPath: '/owner/apps'
+      preLoaderRoute: typeof OwnerAppsRouteImport
       parentRoute: typeof OwnerRoute
     }
     '/groups/$id': {
@@ -1129,11 +1225,19 @@ const GroupsRouteWithChildren =
   GroupsRoute._addFileChildren(GroupsRouteChildren)
 
 interface OwnerRouteChildren {
+  OwnerAppsRoute: typeof OwnerAppsRoute
   OwnerDashboardRoute: typeof OwnerDashboardRoute
+  OwnerRolesRoute: typeof OwnerRolesRoute
+  OwnerUsersRoute: typeof OwnerUsersRoute
+  OwnerVisitsRoute: typeof OwnerVisitsRoute
 }
 
 const OwnerRouteChildren: OwnerRouteChildren = {
+  OwnerAppsRoute: OwnerAppsRoute,
   OwnerDashboardRoute: OwnerDashboardRoute,
+  OwnerRolesRoute: OwnerRolesRoute,
+  OwnerUsersRoute: OwnerUsersRoute,
+  OwnerVisitsRoute: OwnerVisitsRoute,
 }
 
 const OwnerRouteWithChildren = OwnerRoute._addFileChildren(OwnerRouteChildren)
@@ -1209,6 +1313,7 @@ const rootRouteChildren: RootRouteChildren = {
   TermsRoute: TermsRoute,
   ToolsRoute: ToolsRouteWithChildren,
   VideosRoute: VideosRouteWithChildren,
+  UserDashboardRoute: UserDashboardRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -24,9 +24,16 @@ function AuthPage() {
   const [displayName, setDisplayName] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const goToMyDashboard = async () => {
+    const path = await fetchMyDashboard();
+    navigate({ to: path as string });
+  };
+
   useEffect(() => {
-    if (user) navigate({ to: "/" });
-  }, [user, navigate]);
+    if (user) void goToMyDashboard();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

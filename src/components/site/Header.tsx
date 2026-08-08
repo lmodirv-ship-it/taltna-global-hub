@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Bell, Search, Plus, Sparkles, Globe, LogOut, Shield } from "lucide-react";
+import { Bell, Search, Plus, Sparkles, Globe, LogOut, Shield, LayoutDashboard, Crown } from "lucide-react";
 import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -87,13 +87,26 @@ export function Header() {
                     <span className="truncate">{user.email}</span>
                   </DropdownMenuLabel>
                   <DropdownMenuSeparator />
+                  <DropdownMenuItem asChild>
+                    <Link to="/user/dashboard" className="cursor-pointer">
+                      <LayoutDashboard className="h-4 w-4 me-2" /> لوحتي
+                    </Link>
+                  </DropdownMenuItem>
                   {isAdmin && (
-                    <DropdownMenuItem asChild>
-                      <Link to="/admin" className="cursor-pointer">
-                        <Shield className="h-4 w-4 me-2 text-primary" /> لوحة التحكم
-                      </Link>
-                    </DropdownMenuItem>
+                    <>
+                      <DropdownMenuItem asChild>
+                        <Link to="/owner/dashboard" className="cursor-pointer">
+                          <Crown className="h-4 w-4 me-2 text-primary" /> غرفة عمليات المالك
+                        </Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem asChild>
+                        <Link to="/admin" className="cursor-pointer">
+                          <Shield className="h-4 w-4 me-2 text-primary" /> لوحة التحكم
+                        </Link>
+                      </DropdownMenuItem>
+                    </>
                   )}
+
                   <DropdownMenuItem onClick={signOut} className="text-destructive cursor-pointer">
                     <LogOut className="h-4 w-4 me-2" /> تسجيل الخروج
                   </DropdownMenuItem>

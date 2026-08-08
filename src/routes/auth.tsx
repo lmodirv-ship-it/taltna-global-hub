@@ -2,6 +2,8 @@ import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/use-auth";
+import { fetchMyDashboard } from "@/lib/hn";
+
 import { Globe, Sparkles, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -24,9 +26,16 @@ function AuthPage() {
   const [displayName, setDisplayName] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const goToMyDashboard = async () => {
+    const path = await fetchMyDashboard();
+    navigate({ to: path as string });
+  };
+
   useEffect(() => {
-    if (user) navigate({ to: "/" });
-  }, [user, navigate]);
+    if (user) void goToMyDashboard();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -48,7 +57,7 @@ function AuthPage() {
         if (error) throw error;
         toast.success("مرحباً بعودتك!");
       }
-      navigate({ to: "/" });
+      await goToMyDashboard();
     } catch (err) {
       const msg = err instanceof Error ? err.message : "حدث خطأ";
       toast.error(msg.includes("Invalid login") ? "بيانات الدخول غير صحيحة" : msg);

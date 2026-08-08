@@ -608,6 +608,153 @@ export type Database = {
           },
         ]
       }
+      hn_apps: {
+        Row: {
+          base_url: string | null
+          created_at: string
+          id: string
+          is_active: boolean
+          key: string
+          name: string
+        }
+        Insert: {
+          base_url?: string | null
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          key: string
+          name: string
+        }
+        Update: {
+          base_url?: string | null
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          key?: string
+          name?: string
+        }
+        Relationships: []
+      }
+      hn_roles: {
+        Row: {
+          created_at: string
+          dashboard_path: string
+          id: string
+          key: string
+          level: number
+          name_ar: string
+          name_en: string | null
+          name_fr: string | null
+        }
+        Insert: {
+          created_at?: string
+          dashboard_path?: string
+          id?: string
+          key: string
+          level?: number
+          name_ar: string
+          name_en?: string | null
+          name_fr?: string | null
+        }
+        Update: {
+          created_at?: string
+          dashboard_path?: string
+          id?: string
+          key?: string
+          level?: number
+          name_ar?: string
+          name_en?: string | null
+          name_fr?: string | null
+        }
+        Relationships: []
+      }
+      hn_user_roles_apps: {
+        Row: {
+          app_key: string
+          created_at: string
+          granted_by: string | null
+          id: string
+          role_key: string
+          user_id: string
+        }
+        Insert: {
+          app_key?: string
+          created_at?: string
+          granted_by?: string | null
+          id?: string
+          role_key?: string
+          user_id: string
+        }
+        Update: {
+          app_key?: string
+          created_at?: string
+          granted_by?: string | null
+          id?: string
+          role_key?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      hn_users: {
+        Row: {
+          created_at: string
+          email: string | null
+          full_name: string | null
+          is_active: boolean
+          last_seen_at: string | null
+          origin_app: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          is_active?: boolean
+          last_seen_at?: string | null
+          origin_app?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          is_active?: boolean
+          last_seen_at?: string | null
+          origin_app?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      hn_visits: {
+        Row: {
+          app_key: string
+          created_at: string
+          id: string
+          is_member: boolean
+          path: string | null
+          session_id: string
+        }
+        Insert: {
+          app_key?: string
+          created_at?: string
+          id?: string
+          is_member?: boolean
+          path?: string | null
+          session_id: string
+        }
+        Update: {
+          app_key?: string
+          created_at?: string
+          id?: string
+          is_member?: boolean
+          path?: string | null
+          session_id?: string
+        }
+        Relationships: []
+      }
       messages: {
         Row: {
           attachment_url: string | null
@@ -1141,6 +1288,12 @@ export type Database = {
           _user_id: string
         }
         Returns: boolean
+      }
+      hn_my_dashboard: { Args: { _app_key?: string }; Returns: string }
+      hn_public_stats: { Args: never; Returns: Json }
+      hn_track_visit: {
+        Args: { _app_key?: string; _path?: string; _session_id: string }
+        Returns: undefined
       }
     }
     Enums: {

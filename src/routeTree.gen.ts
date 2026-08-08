@@ -42,6 +42,7 @@ import { Route as ToolsAiRouteImport } from './routes/tools.ai'
 import { Route as ToolsSlugRouteImport } from './routes/tools.$slug'
 import { Route as QuestionsAskRouteImport } from './routes/questions.ask'
 import { Route as QuestionsIdRouteImport } from './routes/questions.$id'
+import { Route as OwnerDashboardRouteImport } from './routes/owner.dashboard'
 import { Route as GroupsIdRouteImport } from './routes/groups.$id'
 import { Route as ForumsNewRouteImport } from './routes/forums.new'
 import { Route as ForumsCategoryRouteImport } from './routes/forums.$category'
@@ -226,6 +227,11 @@ const QuestionsIdRoute = QuestionsIdRouteImport.update({
   path: '/$id',
   getParentRoute: () => QuestionsRoute,
 } as any)
+const OwnerDashboardRoute = OwnerDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => OwnerRoute,
+} as any)
 const GroupsIdRoute = GroupsIdRouteImport.update({
   id: '/$id',
   path: '/$id',
@@ -330,7 +336,7 @@ export interface FileRoutesByFullPath {
   '/membership': typeof MembershipRoute
   '/messages': typeof MessagesRoute
   '/notifications': typeof NotificationsRoute
-  '/owner': typeof OwnerRoute
+  '/owner': typeof OwnerRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
   '/questions': typeof QuestionsRouteWithChildren
@@ -357,6 +363,7 @@ export interface FileRoutesByFullPath {
   '/forums/$category': typeof ForumsCategoryRoute
   '/forums/new': typeof ForumsNewRoute
   '/groups/$id': typeof GroupsIdRoute
+  '/owner/dashboard': typeof OwnerDashboardRoute
   '/questions/$id': typeof QuestionsIdRoute
   '/questions/ask': typeof QuestionsAskRoute
   '/tools/$slug': typeof ToolsSlugRoute
@@ -383,7 +390,7 @@ export interface FileRoutesByTo {
   '/membership': typeof MembershipRoute
   '/messages': typeof MessagesRoute
   '/notifications': typeof NotificationsRoute
-  '/owner': typeof OwnerRoute
+  '/owner': typeof OwnerRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
   '/questions': typeof QuestionsRouteWithChildren
@@ -410,6 +417,7 @@ export interface FileRoutesByTo {
   '/forums/$category': typeof ForumsCategoryRoute
   '/forums/new': typeof ForumsNewRoute
   '/groups/$id': typeof GroupsIdRoute
+  '/owner/dashboard': typeof OwnerDashboardRoute
   '/questions/$id': typeof QuestionsIdRoute
   '/questions/ask': typeof QuestionsAskRoute
   '/tools/$slug': typeof ToolsSlugRoute
@@ -437,7 +445,7 @@ export interface FileRoutesById {
   '/membership': typeof MembershipRoute
   '/messages': typeof MessagesRoute
   '/notifications': typeof NotificationsRoute
-  '/owner': typeof OwnerRoute
+  '/owner': typeof OwnerRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
   '/questions': typeof QuestionsRouteWithChildren
@@ -464,6 +472,7 @@ export interface FileRoutesById {
   '/forums/$category': typeof ForumsCategoryRoute
   '/forums/new': typeof ForumsNewRoute
   '/groups/$id': typeof GroupsIdRoute
+  '/owner/dashboard': typeof OwnerDashboardRoute
   '/questions/$id': typeof QuestionsIdRoute
   '/questions/ask': typeof QuestionsAskRoute
   '/tools/$slug': typeof ToolsSlugRoute
@@ -519,6 +528,7 @@ export interface FileRouteTypes {
     | '/forums/$category'
     | '/forums/new'
     | '/groups/$id'
+    | '/owner/dashboard'
     | '/questions/$id'
     | '/questions/ask'
     | '/tools/$slug'
@@ -572,6 +582,7 @@ export interface FileRouteTypes {
     | '/forums/$category'
     | '/forums/new'
     | '/groups/$id'
+    | '/owner/dashboard'
     | '/questions/$id'
     | '/questions/ask'
     | '/tools/$slug'
@@ -625,6 +636,7 @@ export interface FileRouteTypes {
     | '/forums/$category'
     | '/forums/new'
     | '/groups/$id'
+    | '/owner/dashboard'
     | '/questions/$id'
     | '/questions/ask'
     | '/tools/$slug'
@@ -652,7 +664,7 @@ export interface RootRouteChildren {
   MembershipRoute: typeof MembershipRoute
   MessagesRoute: typeof MessagesRoute
   NotificationsRoute: typeof NotificationsRoute
-  OwnerRoute: typeof OwnerRoute
+  OwnerRoute: typeof OwnerRouteWithChildren
   PrivacyRoute: typeof PrivacyRoute
   ProfileRoute: typeof ProfileRoute
   QuestionsRoute: typeof QuestionsRouteWithChildren
@@ -898,6 +910,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QuestionsIdRouteImport
       parentRoute: typeof QuestionsRoute
     }
+    '/owner/dashboard': {
+      id: '/owner/dashboard'
+      path: '/dashboard'
+      fullPath: '/owner/dashboard'
+      preLoaderRoute: typeof OwnerDashboardRouteImport
+      parentRoute: typeof OwnerRoute
+    }
     '/groups/$id': {
       id: '/groups/$id'
       path: '/$id'
@@ -1109,6 +1128,16 @@ const GroupsRouteChildren: GroupsRouteChildren = {
 const GroupsRouteWithChildren =
   GroupsRoute._addFileChildren(GroupsRouteChildren)
 
+interface OwnerRouteChildren {
+  OwnerDashboardRoute: typeof OwnerDashboardRoute
+}
+
+const OwnerRouteChildren: OwnerRouteChildren = {
+  OwnerDashboardRoute: OwnerDashboardRoute,
+}
+
+const OwnerRouteWithChildren = OwnerRoute._addFileChildren(OwnerRouteChildren)
+
 interface QuestionsRouteChildren {
   QuestionsIdRoute: typeof QuestionsIdRoute
   QuestionsAskRoute: typeof QuestionsAskRoute
@@ -1169,7 +1198,7 @@ const rootRouteChildren: RootRouteChildren = {
   MembershipRoute: MembershipRoute,
   MessagesRoute: MessagesRoute,
   NotificationsRoute: NotificationsRoute,
-  OwnerRoute: OwnerRoute,
+  OwnerRoute: OwnerRouteWithChildren,
   PrivacyRoute: PrivacyRoute,
   ProfileRoute: ProfileRoute,
   QuestionsRoute: QuestionsRouteWithChildren,

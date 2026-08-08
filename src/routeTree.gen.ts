@@ -19,6 +19,7 @@ import { Route as SearchRouteImport } from './routes/search'
 import { Route as QuestionsRouteImport } from './routes/questions'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as OwnerRouteImport } from './routes/owner'
 import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as MessagesRouteImport } from './routes/messages'
 import { Route as MembershipRouteImport } from './routes/membership'
@@ -108,6 +109,11 @@ const ProfileRoute = ProfileRouteImport.update({
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OwnerRoute = OwnerRouteImport.update({
+  id: '/owner',
+  path: '/owner',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NotificationsRoute = NotificationsRouteImport.update({
@@ -324,6 +330,7 @@ export interface FileRoutesByFullPath {
   '/membership': typeof MembershipRoute
   '/messages': typeof MessagesRoute
   '/notifications': typeof NotificationsRoute
+  '/owner': typeof OwnerRoute
   '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
   '/questions': typeof QuestionsRouteWithChildren
@@ -376,6 +383,7 @@ export interface FileRoutesByTo {
   '/membership': typeof MembershipRoute
   '/messages': typeof MessagesRoute
   '/notifications': typeof NotificationsRoute
+  '/owner': typeof OwnerRoute
   '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
   '/questions': typeof QuestionsRouteWithChildren
@@ -429,6 +437,7 @@ export interface FileRoutesById {
   '/membership': typeof MembershipRoute
   '/messages': typeof MessagesRoute
   '/notifications': typeof NotificationsRoute
+  '/owner': typeof OwnerRoute
   '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
   '/questions': typeof QuestionsRouteWithChildren
@@ -483,6 +492,7 @@ export interface FileRouteTypes {
     | '/membership'
     | '/messages'
     | '/notifications'
+    | '/owner'
     | '/privacy'
     | '/profile'
     | '/questions'
@@ -535,6 +545,7 @@ export interface FileRouteTypes {
     | '/membership'
     | '/messages'
     | '/notifications'
+    | '/owner'
     | '/privacy'
     | '/profile'
     | '/questions'
@@ -587,6 +598,7 @@ export interface FileRouteTypes {
     | '/membership'
     | '/messages'
     | '/notifications'
+    | '/owner'
     | '/privacy'
     | '/profile'
     | '/questions'
@@ -640,6 +652,7 @@ export interface RootRouteChildren {
   MembershipRoute: typeof MembershipRoute
   MessagesRoute: typeof MessagesRoute
   NotificationsRoute: typeof NotificationsRoute
+  OwnerRoute: typeof OwnerRoute
   PrivacyRoute: typeof PrivacyRoute
   ProfileRoute: typeof ProfileRoute
   QuestionsRoute: typeof QuestionsRouteWithChildren
@@ -722,6 +735,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/owner': {
+      id: '/owner'
+      path: '/owner'
+      fullPath: '/owner'
+      preLoaderRoute: typeof OwnerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/notifications': {
@@ -1149,6 +1169,7 @@ const rootRouteChildren: RootRouteChildren = {
   MembershipRoute: MembershipRoute,
   MessagesRoute: MessagesRoute,
   NotificationsRoute: NotificationsRoute,
+  OwnerRoute: OwnerRoute,
   PrivacyRoute: PrivacyRoute,
   ProfileRoute: ProfileRoute,
   QuestionsRoute: QuestionsRouteWithChildren,
@@ -1163,13 +1184,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
